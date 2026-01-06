@@ -1,6 +1,6 @@
 # ch 4.2.1 main.py
 import sys
-from PyQt5.QtWidgets import (QApplication, QWidget, QPushButton, QVBoxLayout, QMessageBox) # QMessageBox : 메시지박스 위젯
+from PyQt5.QtWidgets import (QApplication, QWidget, QPushButton, QVBoxLayout, QMessageBox, QPlainTextEdit) 
 from PyQt5.QtGui import QIcon
     
 class Calculator(QWidget):
@@ -10,11 +10,14 @@ class Calculator(QWidget):
         self.initUI()
 
     def initUI(self):
+        self.te1 = QPlainTextEdit() # 텍스트 에디트 위젯 생성
+        self.te1.setReadOnly(True) # 텍스트 에디트 위젯을 읽기만 가능하도록 수정
+
         self.btn1 = QPushButton('Message', self) # 버튼추가
-        self.btn1.clicked.connect(self.activateMessage) #버튼 클릭시 핸들러 함수 연결
+        self.btn1.clicked.connect(self.activateMessage) # 버튼 클릭시 핸들러 함수 연결
 
         vbox = QVBoxLayout() # 수직 레이아웃 위젯 생성
-        vbox.addStretch(1) # 빈공간
+        vbox.addWidget(self.te1) # 빈공간
         vbox.addWidget(self.btn1) # 버튼위치
         vbox.addStretch(1) # 빈공간
 
