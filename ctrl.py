@@ -13,7 +13,7 @@ class Control:
 
     def sum(self, a, b):
         try:
-	    return str(a+b)
-	except:
-	    return "Calculation Error"
+            return str(a+b)
+        except:
+             return "Calculation Error"
 
